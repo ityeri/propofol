@@ -1,16 +1,19 @@
-import {BrowserRouter, Route, Routes} from "react-router";
+import {Route, Routes} from "react-router";
 import {AnimatePresence} from "framer-motion";
 import Home from "./pages/Home";
+import {RainyDayPage} from "@/pages/RainyDayPage";
+import {useLocation} from "react-router-dom";
 
 function App() {
+    const location = useLocation()
+
     return (
-        <BrowserRouter>
-            <AnimatePresence mode="wait">
-                <Routes location={location} key={location.pathname}>
-                    <Route path="/home" element={<Home/>}/>
-                </Routes>
-            </AnimatePresence>
-        </BrowserRouter>
+        <AnimatePresence mode="popLayout">
+            <Routes location={location} key={location.pathname}>
+                <Route path="/home" element={<Home/>}/>
+                <Route path="/rainy" element={<RainyDayPage/>}/>
+            </Routes>
+        </AnimatePresence>
     )
 }
 

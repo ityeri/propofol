@@ -1,28 +1,36 @@
 import ExpendableIconButton from "@/components/ExtendableIconButton"
 import GithubIcon from "@/assets/github-icon.png"
 import InfoIcon from "@/assets/info-icon.svg"
+import BackIcon from "@/assets/back-icon.svg";
 import {Link} from "react-router-dom";
 import {Button} from "@headlessui/react";
-import {useState} from "react";
-import { motion } from "framer-motion";
 import * as React from "react";
+import {useState} from "react";
+import {motion} from "framer-motion";
 
 type InformationBarParms = {
     githubUrl: string
-    projectName: string
-    infoButtonSubTitle: string
+    githubProjectName: string
+    infoButtonSubtitle: string
     infoButtonTitle: string
     bodyTitle: string
+    withBackButton?: boolean
     children: React.ReactNode
+    fadeInDelay?: number
 }
 
 export default function InformationBar(
-    {githubUrl, projectName, infoButtonSubTitle, infoButtonTitle, bodyTitle, children}: InformationBarParms
+    {githubUrl, githubProjectName, infoButtonSubtitle, infoButtonTitle, bodyTitle, withBackButton = false, children, fadeInDelay = 0}: InformationBarParms
 ) {
     const [isOpen, setOpen] = useState(false)
 
     return <div
-        className={`relative flex flex-col size-full ${isOpen ? "justify-start" : "justify-center"}`}
+        className={`
+        relative
+        overflow-hidden
+        flex flex-col size-full
+        ${isOpen ? "justify-start" : "justify-center"}
+        `}
     >
         <motion.div
             className="absolute top-0 w-full bg-background-secondary"
@@ -42,25 +50,51 @@ export default function InformationBar(
             transition={{ease: "easeInOut", duration: 0.7}}
             className="relative flex flex-col p-5 gap-5"
         >
-            <div className="flex w-full h-20 justify-end">
+            <motion.div
+                initial={{transform: "translateX(50%)"}}
+                animate={{transform: "translateX(0)"}}
+                transition={{ease: "backOut", duration: 0.5, delay: fadeInDelay}}
+                className="flex w-full h-20 justify-end"
+            >
                 <Link to={githubUrl} className="contents">
                     <ExpendableIconButton
                         icon={GithubIcon}
                         subtitle="Original source from"
-                        title={projectName}
+                        title={githubProjectName}
                     />
                 </Link>
-            </div>
-            <div className="flex w-full h-20 justify-end">
+            </motion.div>
+            <motion.div
+                initial={{transform: "translateX(50%)"}}
+                animate={{transform: "translateX(0)"}}
+                transition={{ease: "backOut", duration: 0.5, delay: fadeInDelay + 0.1}}
+                className="flex w-full h-20 justify-end"
+            >
                 <Button className="contents" onClick={() => {setOpen(!isOpen)}}>
                     <ExpendableIconButton
                         icon={InfoIcon}
-                        subtitle={infoButtonSubTitle}
+                        subtitle={infoButtonSubtitle}
                         title={infoButtonTitle}
                     />
                 </Button>
-            </div>
-
+            </motion.div>
+            <div className="h-5"/>
+            {
+                withBackButton ?
+                    <motion.div
+                        initial={{transform: "translateX(50%)"}}
+                        animate={{transform: "translateX(0)"}}
+                        transition={{ease: "backOut", duration: 0.5, delay: fadeInDelay + 0.3}}
+                        className="flex w-full h-20 justify-end"
+                    >
+                        <Link to="/home" className="contents">
+                            <div className="h-full p-4 aspect-square bg-background-secondary rounded-full">
+                                <img src={BackIcon}/>
+                            </div>
+                        </Link>
+                    </motion.div> :
+                    <></>
+            }
             <div className="h-10"/>
 
             <div
@@ -70,7 +104,7 @@ export default function InformationBar(
                 inset-x-0 flex-1
                 gap-5
                 ${isOpen ? "opacity-100" : "opacity-0"}
-                ${isOpen ? "delay-500" : ""}
+                ${isOpen ? `delay-500` : ""}
                 duration-500 ease-in-out
                 px-8
                 `}
