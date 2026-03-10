@@ -190,7 +190,7 @@ export default function AboutMePage() {
                 "since": "2026.2"
             }}
         />,
-        <p>인터페이스화 된, 곳곳에 연결이 용의한 테트리스 로직</p>,
+        <p>인터페이스화 된, 곳곳에 연결이 용이한 테트리스 로직</p>,
     ]
 
     return <div className="fixed w-screen h-screen">
