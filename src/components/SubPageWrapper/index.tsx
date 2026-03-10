@@ -26,7 +26,7 @@ export default function SubPageWrapper(
         infoButtonSubtitle, infoButtonTitle,
         infoTitle, info,
         children,
-        fadeInDelay = 0
+        fadeInDelay = 1
     }: SubPageWrapperParms
 ) {
     return <motion.div

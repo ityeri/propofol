@@ -1,5 +1,4 @@
 import SubPageWrapper from "@/components/SubPageWrapper"
-import { motion } from "framer-motion"
 import {useEffect, useRef} from "react"
 
 export function RainyDayPage() {
@@ -82,7 +81,7 @@ export function RainyDayPage() {
     }, [])
 
     return (
-        <motion.div className="fixed w-screen h-screen">
+        <div className="fixed w-screen h-screen">
             <SubPageWrapper
                 bgColor="var(--color-background-primary)"
                 githubUrl="https://github.com/ityeri/propofol"
@@ -90,7 +89,6 @@ export function RainyDayPage() {
                 infoButtonSubtitle="information about"
                 infoButtonTitle="Rainy Day"
                 infoTitle="비오는날"
-                fadeInDelay={1}
                 info={<>
                 </>}
             >
@@ -105,6 +103,6 @@ export function RainyDayPage() {
                     />
                 </div>
             </SubPageWrapper>
-        </motion.div>
+        </div>
     )
 }

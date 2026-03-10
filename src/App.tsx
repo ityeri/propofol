@@ -3,6 +3,7 @@ import {AnimatePresence} from "framer-motion";
 import Home from "./pages/Home";
 import {RainyDayPage} from "@/pages/RainyDayPage";
 import {useLocation} from "react-router-dom";
+import AboutMePage from "@/pages/AboutMePage";
 
 function App() {
     const location = useLocation()
@@ -12,6 +13,7 @@ function App() {
             <Routes location={location} key={location.pathname}>
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/rainy" element={<RainyDayPage/>}/>
+                <Route path="/about" element={<AboutMePage/>}/>
             </Routes>
         </AnimatePresence>
     )

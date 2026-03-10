@@ -51,10 +51,16 @@ export default function Home() {
                             elementNums={20}
                             elements={[
                                 <MenuElement
+                                    title="About Me"
+                                    subtitle="저에 대해"
+                                    to="/about"
+                                    onClick={() => {selectedIndex.current = 0}}
+                                />,
+                                <MenuElement
                                     title="Rainy Day"
                                     subtitle="비가온다"
                                     to="/rainy"
-                                    onClick={() => {selectedIndex.current = 0}}
+                                    onClick={() => {selectedIndex.current = 1}}
                                 />
                             ]}
                             defaultElement={

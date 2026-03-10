@@ -4,7 +4,7 @@
 
 @theme {
     --color-text-primary: #FFFFFF;
-    /*--color-text-secondary: #AEAEAE;*/
+    --color-text-secondary: #AEAEAE;
     /*--color-text-disabled: #737373;*/
 
     --color-background-primary: #050505;
@@ -19,5 +19,27 @@
         background-color: var(--color-background-primary);
         color: var(--color-text-primary);
         font-family: var(--font-primary), sans-serif;
+    }
+
+    h1 {
+        @apply text-5xl font-extrabold tracking-tight mb-6;
+    }
+    h2 {
+        @apply text-4xl font-bold tracking-tight mb-5;
+    }
+    h3 {
+        @apply text-3xl font-bold mb-4;
+    }
+    h4 {
+        @apply text-2xl font-semibold mb-3;
+    }
+    h5 {
+        @apply text-xl font-semibold mb-2;
+    }
+    h6 {
+        @apply text-lg font-medium mb-2;
+    }
+    p {
+        @apply text-lg;
     }
 }
