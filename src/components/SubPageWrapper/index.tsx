@@ -26,28 +26,29 @@ export default function SubPageWrapper(
         infoButtonSubtitle, infoButtonTitle,
         infoTitle, info,
         children,
-        fadeInDelay = 1
+        fadeInDelay = 1.5
     }: SubPageWrapperParms
 ) {
     return <motion.div
         className="relative flex size-full"
         initial={{
-            clipPath: "circle(250vmax at 0 50%)",
+            clipPath: "circle(0 at 0 50%)",
         }}
         animate={{
             clipPath: "circle(250vmax at 0 50%)",
+            transition: { duration: 1, delay: 1, ease: "easeIn" }
         }}
+        style={{backgroundColor: bgColor}}
         exit={{
             clipPath: "circle(0 at 0 50%)",
             transition: { duration: 1, ease: "easeOut" }
         }}
     >
         <motion.div
-            className="absolute inset-0 -z-10"
-            style={{backgroundColor: bgColor}}
-            initial={{opacity: 0}}
-            animate={{opacity: 100}}
-            transition={{duration: 1, delay: 1}}
+            className="absolute inset-0 -z-10 bg-background-secondary"
+            initial={{opacity: 100}}
+            animate={{opacity: 0}}
+            transition={{delay: 0.2, duration: 1}}
         />
 
         <motion.div
