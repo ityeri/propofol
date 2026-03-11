@@ -154,7 +154,7 @@ export default function AboutMePage() {
             </p>
             <BlockMath math="F = G \frac{m_1 m_2}{r^2}"/>
             <p>
-                노드가 자신의 1촌 노드와 일정한 거리를 가지도록 하기 위해 거리 부분을 살짝 수정합니다
+                노드가 자신의 1촌 노드와 일정한 거리를 가지도록 하기 위해 거리 부분만 살짝 수정합니다
             </p>
             <BlockMath math="F = G \frac{m_1 m_2}{|r - i|^2}"/>
             <p>
@@ -168,6 +168,9 @@ export default function AboutMePage() {
             <div className="flex justify-center h-100">
                 <img src={weaveScreenshotImage}/>
             </div>
+            <small className="text-text-secondary">
+                weave 로 가장 큰 노드 A, B 를 만들고 이 A 와 B 에 각각 연결되는 노드를 여러개 만든 모습
+            </small>
         </div>,
         <ProjectInfo
             projectName="krawen"
@@ -179,7 +182,12 @@ export default function AboutMePage() {
                 "since": "2025.9"
             }}
         />,
-        <p>API 요청을 통해 API 자체를 그대로 미러링 하는 크롤링 & 미러링 프로젝트</p>,
+        <p>
+            저희 학교에 여러 재밌는 사건이나, 썰, 학생에 대한 글이 올라오는 자체 개발 사이트가 있습니다.
+            자습시간에 이거저거 읽는 재미가 쏠쏠한데 사이트가 불시에 터지는 문제가 있습니다.
+            이 프로젝트는 자꾸만 터지는 이 사이트를 통쨰로 카피뜨고 미러링 해보자는 취지에서 시작됬습니다.
+        </p>,
+        // <h3>기술적으로는..</h3>,
         <ProjectInfo
             projectName="tetris_generic"
             projectUrl="https://github.com/ityeri/tetris_generic"

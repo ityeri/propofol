@@ -68,6 +68,7 @@ export default function Home() {
                             }
                             subGuides={5}
                             onExit={() => {
+                                console.log('index: ', selectedIndex.current)
                                 if (selectedIndex.current != null) {
                                     return 360 / 20 * selectedIndex.current
                                 } else {

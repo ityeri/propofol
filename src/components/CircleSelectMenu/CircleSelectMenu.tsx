@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import * as React from "react";
 import {useEffect, useRef, useState} from "react";
 
@@ -21,8 +21,6 @@ export default function CircleSelectMenu(
 ) {
     const [angleOffset, setAngleOffset] = useState(0)
     const prevAngleOffset = useRef(angleOffset)
-    const scrolled = useRef(false)
-
     const [isFadeIn, setFadeIn] = useState(true)
 
     useEffect(() => {
@@ -30,13 +28,13 @@ export default function CircleSelectMenu(
     })
 
     const handleScroll = (event: React.WheelEvent) => {
+        if (isFadeIn) return
         const angleAmount = event.deltaY * 0.2
 
         setAngleOffset(prev => {
             prevAngleOffset.current = prev
             return (prev + angleAmount) % 360
         })
-        scrolled.current = true
     }
 
     return (
@@ -73,7 +71,7 @@ export default function CircleSelectMenu(
                     transform: `rotate(${-angleOffset}deg)`
                 }}
                 exit={{
-                    transform: `rotate(${onExit()}deg)`,
+                    transform: `rotate(${-onExit()}deg)`,
                     transition: {
                         duration: 0.7,
                         ease: "easeInOut"

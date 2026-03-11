@@ -42,4 +42,7 @@
     p {
         @apply text-lg;
     }
+    small {
+        @apply text-sm;
+    }
 }
