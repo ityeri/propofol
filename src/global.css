@@ -1,21 +1,22 @@
-@import url("https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css");
-@import "tailwindcss";
-@import "./fonts.css";
+@import url('https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css');
+@import 'tailwindcss';
+@import './fonts.css';
 
 @theme {
-    --color-text-primary: #FFFFFF;
-    --color-text-secondary: #AEAEAE;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #aeaeae;
     /*--color-text-disabled: #737373;*/
 
     --color-background-primary: #050505;
     --color-background-secondary: #171717;
     /*--color-background-hover: #FFFFFF09;*/
 
-    --font-primary: "Eulyoo";
+    --font-primary: 'Eulyoo';
 }
 
 @layer base {
-    html, body {
+    html,
+    body {
         background-color: var(--color-background-primary);
         color: var(--color-text-primary);
         font-family: var(--font-primary), sans-serif;
