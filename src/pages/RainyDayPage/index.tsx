@@ -1,6 +1,6 @@
 import SubPageWrapper from '@/components/SubPageWrapper'
-import { useEffect, useRef } from 'react'
-import { validUnit } from 'katex/src/units.ts'
+import {useEffect, useRef} from 'react'
+import rawUmbrellaImage from '@/assets/umbrella.png'
 
 export function RainyDayPage() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null)
@@ -156,6 +156,9 @@ export function RainyDayPage() {
         const canvas = canvasRef.current!
         const ctx = canvas.getContext('2d')!
 
+        const umbrellaImage = new Image()
+        umbrellaImage.src = rawUmbrellaImage
+
         const resizeCanvas = () => {
             const { clientWidth, clientHeight } = canvas
 
@@ -211,7 +214,7 @@ export function RainyDayPage() {
                     shakeRadius: 5,
                     yOffset: 0,
                     movingUp: false,
-                    opacity: 0.5,
+                    opacity: Math.random(),
                 })
                 nextUmbrellaSpawnDelay.current = 0.1 + Math.random()
                 umbrellaSpawnTimerRef.current = 0
@@ -231,6 +234,7 @@ export function RainyDayPage() {
 
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             ctx.lineWidth = 3
+            ctx.globalAlpha = 1
 
             dropletListRef.current.forEach((droplet) => {
                 const positions = [droplet.position, ...droplet.prevPositions]
@@ -252,11 +256,14 @@ export function RainyDayPage() {
                     y: umbrella.anchorPosition.y + umbrella.yOffset,
                 }
 
-                ctx.fillStyle = `rgba(255, 255, 255, ${umbrella.opacity})`
-                ctx.beginPath()
-                ctx.arc(position.x, position.y, umbrella.radius, 0, Math.PI * 2)
-                ctx.closePath()
-                ctx.fill()
+                ctx.globalAlpha = umbrella.opacity
+                ctx.drawImage(
+                    umbrellaImage,
+                    position.x - umbrella.radius,
+                    position.y - umbrella.radius,
+                    umbrella.radius * 2,
+                    umbrella.radius * 2
+                )
             })
 
             requestId = requestAnimationFrame(render)
