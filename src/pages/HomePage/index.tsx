@@ -5,7 +5,7 @@ import { motion, usePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { useScramble } from '@/useScramble.ts'
 
-export default function Home() {
+export default function HomePage() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
     const [mounted, setMounted] = useState(false)
 
