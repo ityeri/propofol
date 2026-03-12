@@ -11,7 +11,7 @@ export default function Home() {
 
     const titleText = useScramble("Propofol", 2, 1.5, "easeInOut")
     const subtitle1 = useScramble("Form Follows Function", 2, 1.5, "easeInOut")
-    const subtitle2 = useScramble("site by ityeri", 2, 2, "easeInOut")
+    const subtitle2 = useScramble("page by ityeri", 2, 2, "easeInOut")
 
     useEffect(() => {
         setTimeout(() => setMounted(true), 1000)
