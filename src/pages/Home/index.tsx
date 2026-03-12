@@ -37,19 +37,6 @@ export default function Home() {
             }}
         >
             {mounted && <>
-                {/*<div className="relative flex items-center justify-center size-0 top-1/2">*/}
-                {/*    <motion.div*/}
-                {/*        className="absolute rounded-full aspect-square bg-background-secondary z-10"*/}
-                {/*        initial={{width: "0"}}*/}
-                {/*        animate={{width: "0"}}*/}
-                {/*        exit={{width: "300vmax"}}*/}
-                {/*        transition={{*/}
-                {/*            ease: "easeInOut",*/}
-                {/*            duration: 1.0,*/}
-                {/*            delay: 0.7*/}
-                {/*        }}*/}
-                {/*    />*/}
-                {/*</div>*/}
                 <motion.div
                     className="relative w-1/2"
                     initial={{opacity: 0, transform: "translateX(-300px)"}}

@@ -35,7 +35,7 @@ export default function SubPageWrapper(
             clipPath: "circle(0 at 0 50%)",
         }}
         animate={{
-            clipPath: "circle(250vmax at 0 50%)",
+            clipPath: "circle(300vmax at 0 50%)",
             transition: { duration: 1, delay: 1, ease: "easeIn" }
         }}
         style={{backgroundColor: bgColor}}
@@ -45,17 +45,14 @@ export default function SubPageWrapper(
         }}
     >
         <motion.div
-            className="absolute inset-0 -z-10 bg-background-secondary"
+            className="absolute inset-0 bg-background-secondary"
             initial={{opacity: 100}}
             animate={{opacity: 0}}
-            transition={{delay: 0.2, duration: 1}}
+            transition={{delay: 1, duration: fadeInDelay}}
         />
 
         <motion.div
             className="flex-1"
-            initial={{opacity: 0}}
-            animate={{opacity: 100}}
-            transition={{duration: 0.3, delay: fadeInDelay + 0.2}}
         >
             {children}
         </motion.div>
@@ -67,7 +64,7 @@ export default function SubPageWrapper(
                 infoButtonTitle={infoButtonTitle}
                 bodyTitle={infoTitle}
                 withBackButton
-                fadeInDelay={fadeInDelay}
+                fadeInDelay={fadeInDelay + 0.1}
             >
                 {info}
             </InformationBar>
