@@ -73,7 +73,6 @@ export default function HomePage() {
                             defaultElement={<div />}
                             subGuides={5}
                             onExit={() => {
-                                console.log('index: ', selectedIndex)
                                 if (selectedIndex != null) {
                                     return (360 / 20) * selectedIndex
                                 } else {
